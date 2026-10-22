@@ -1,0 +1,43 @@
+TAREAS MIGUEL ÁNGEL NEVADO REY -	24 / 09 / 2026
+TAREA 1:
+
+1. Display the name of the user you are logged in as. Go to that user's home directory and display its full path.
+
+whoami
+cd ~
+pwd
+
+2. Check the help for the command that lists directory entries and find the option that includes hidden entries. Also check the help for the command that changes directories.
+
+ls --help
+cd --help
+
+3. List the contents of your home directory. Repeat the listing with hidden entries and details included. Note one entry that did not appear in the first listing.
+
+ls ~/
+ls -a ~/
+ls -la ~/
+
+.bash_history is one of the hidden folders I've found.
+
+4. Go to `/etc` using an absolute path and check your location. Locate the `os-release` entry and display its details using a relative path. List the entry only; do not read its contents.
+
+cd /etc
+pwd
+ls
+ls ./os-release
+
+5. Return to the previous directory and check the path. From there, display the details of `/etc/os-release` without changing directories. Check that you are still in your home directory.
+
+cd ../
+pwd
+ls -la ./etc/os-release
+
+6. Use the up arrow to recall an earlier command that displays your location and run it again. Then display the command history to find it.
+
+(here i press the up arrow key) ls -la ./etc/os-release
+history
+
+7. Finish by displaying the message `Activity completed` in the terminal.
+
+printf ("Activity completed \n")

@@ -1,0 +1,31 @@
+# 07 · Investigate the game servers
+
+**SI · Redirection, pipes and grep · 45–60 minutes**
+
+Use Ubuntu Bash. Copy the supplied `datos` folder into a new folder named `~/server-audit-lab` and work from there. Keep the supplied files unchanged. Run commands individually; do not write a script. Create a `reports` folder for your results.
+
+## Activity
+
+1. **Start a report.** Use `printf` and output redirection to create `reports/session.txt` with the line `Server audit started`. Append `Logs received` without losing the first line. Display the file.
+
+mkdir ./reports
+printf "Server audit started\n" > ./reports/session.txt
+printf "Logs received\n" >> ./reports/session.txt
+
+2. **Separate results and errors.** In one command, list `datos/servers/minecraft.log` and the nonexistent file `datos/servers/missing.log`. Save normal output to `reports/found.txt` and errors to `reports/errors.txt`. Repeat the command, appending its error to the existing error file. Then run it once more, saving both streams together in `reports/combined.txt`.
+
+ls ./datos/servers/minecraft.log >> ./reports/found.txt 2>> ./reports/errors.txt
+ls ./datos/servers/missing.log >> ./reports/found.txt 2>> ./reports/errors.txt
+
+3. **Discard output.** Repeat the same listing twice: first show only the normal output and discard errors; then discard both streams. Use `/dev/null`.
+4. **Find incidents.** Display the lines containing uppercase `ERROR` in `minecraft.log`, including their original line numbers. Save the lines containing `error`, ignoring case, to `reports/minecraft-errors.txt`, without line numbers.
+5. **Exclude and count.** Save the lines of `minecraft.log` that do not contain `INFO` to `reports/minecraft-not-info.txt`. Display the number of lines containing `error`, ignoring case, using `grep` itself.
+6. **Search all servers.** Search the complete `datos/servers` directory, including subfolders, for `error`, ignoring case. Show filenames and line numbers. In two separate searches, display only filenames: those containing a match and those containing none.
+7. **Connect searches.** Using a pipe between two `grep` commands, save only the lines of `minecraft.log` that contain both `ERROR` and `login` to `reports/login-errors.txt`.
+8. **Match exact text.** In `minecraft.log`, find the literal text `player[1]`. Do not include the line containing `player1`.
+9. **Select identifiers.** From `datos/identifiers.txt`, save identifiers consisting of `level` followed only by one or more digits to `reports/levels.txt`. Save codes consisting of one letter followed by exactly two digits to `reports/codes.txt`. Display identifiers consisting of `mc-` or `val-` followed only by one or more digits.
+10. **Include or exclude an empty line.** Display the numbered lines of `identifiers.txt` that contain only digits, allowing the empty line. Repeat the search requiring at least one digit.
+
+## Submission
+
+Submit your `reports` folder and the commands you ran, organised by activity number, in your usual activity record. Include the terminal results for tasks that do not create a file.

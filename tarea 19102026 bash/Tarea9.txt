@@ -1,0 +1,24 @@
+# 09 · Count the sports sessions
+
+**SI · wc, sort and uniq · 15 minutes**
+
+Open Ubuntu Bash in the folder containing the supplied `sessions.txt` and `scores.txt`. Each line of `sessions.txt` represents one sports session. Keep both files unchanged. Run commands individually; do not write a script. Create a `reports` folder.
+
+1. Display the number of lines, words and bytes in `sessions.txt`, using a separate `wc` command for each count.
+wc -l sessions.txt
+wc -w sessions.txt
+wc -c sessions.txt
+2. Sort the sessions alphabetically and save them to `reports/sessions-sorted.txt`. Display the result.
+mkdir ./reports
+sort ./sessions.txt | ./reports/sessions-sorted.txt
+cat ./reports/sessions-sorted.txt
+3. Run `uniq` directly on `sessions.txt`. Then use a pipe between `sort` and `uniq` to save one line per sport to `reports/sports.txt`. Display the file and count its lines with `wc`.
+sort | uniq ./sessions.txt ./reports/sports.txt
+4. Count the sessions per sport with `sort` and `uniq -c`. Sort the counts numerically, highest first, and save them to `reports/sport-counts.txt`. Display the result.
+sort -n | uniq -c ./sessions.txt ./reports/sports-count.txt
+cat ./reports/sports-count.txt
+5. Use `grep` and `wc` together to count only the sessions whose complete line is `basketball`.
+grep 'basketball' | wc ./sessions
+6. Each line of `scores.txt` contains `athlete:score`. Sort by the second field numerically, highest first, and save the ranking to `reports/ranking.txt`. Display it.
+
+Submit your `reports` folder and the commands and terminal outputs, organised by task number, in your activity record.

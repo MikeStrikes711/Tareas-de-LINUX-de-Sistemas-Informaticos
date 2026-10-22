@@ -1,0 +1,22 @@
+1. Build a local reference library. Create `reference` and `notes`. Copy `/etc/os-release` to `reference/server-info.txt`. For a longer text, copy `/usr/share/common-licenses/GPL-3` to `reference/server-manual.txt`. These are local copies, not clipboard operations. If that licence file is missing, use `/etc/services` instead. Inspect the chosen source with `ls` first; if neither long source is available, ask the teacher for a readable local text of several screens. Record the real source: the renamed copy is practice material, not a Dragon Keep manual.
+
+cd
+mkdir ./reference
+mkdir ./notes
+cp /etc/os-release ~/reference/server-info.txt
+cp /usr/share/common-licenses/GPL-3 ~/reference/server-manual.txt
+cd /
+ls ./reference
+
+2. Read a short file. Display all of `server-info.txt` with `cat`. Record the distribution's `NAME` and `VERSION_ID` if present. Repeat with line numbers. Explain why `file` and `stat` from exercise 04 could not supply this text.
+
+cd 
+cat ./reference/server-info.txt
+
+3. Read a long file by screens. Open `server-manual.txt` with `less`. Move forward and back, choose a word visible in your file and search for it. Exit with `q`. Open the same file with `more`, advance one screen and exit. If `more` reaches the end and returns to the prompt, that is normal. Explain when a pager is more useful than `cat`.
+
+cd
+less ./reference/server-manual.txt
+more ./reference/server-manual.txt
+
+A pager is more useful than cat when the text is very long

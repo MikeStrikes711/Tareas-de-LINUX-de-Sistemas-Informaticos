@@ -1,0 +1,53 @@
+1. Prepare the maps. Create `maps`, `links` and the three difficulty directories `levels/easy`, `levels/normal`, `levels/hard`. Use `mkdir -p` and brace expansion for the difficulty paths. In `maps`, create empty files named `map1.txt`, `map2.txt`, `map10.txt`, `EVENT.LOG`, `.secret` and `boss room.txt`. Quote the name containing a space. Check the names, including the hidden file.
+
+mkdir ./maps
+touch ./maps/map{1..10}.txt ./maps/EVENT.LOG ./maps/.secret ./maps/"boss room.txt"
+mkdir ./links
+mkdir -p ./levels/easy ./levels/normal ./levels/hard
+
+ls -la -h ./maps
+
+2. Inspect the layout. List the full game tree. Compare `ls -l maps` with `ls -ld maps`: which describes the directory itself? Record `stat maps/map1.txt`, wait a few seconds, then use `touch` on that existing file. List maps by modification time and inspect the file again. Did its size change?
+
+The command that describes the directory is 'ls -ld maps'. The size didn't change afterwards.
+
+3. Select names. Predict and then list the matches for `maps/*.txt`, `maps/map?.txt` and `maps/map[12].txt`. Explain why `map10.txt` appears in only the first of those lists, and why `.secret` does not appear. Confirm that `boss room.txt` is one file.
+
+map10.txt only appears in the first one because "maps/map?.txt" refers to only ONE CHARACTER (?) after "map". "maps/map[12].txt" references only map.txt files containing numbers 1 and 2. The folder ".secret" doesn't appear because It's not in .txt file format. "boss room.txt" is only one file.
+
+4. Search the live tree. Use `find` to find all `.txt` files in `maps`, then all regular `.txt` **or** `.log` files regardless of letter case. Use grouped alternatives for the second search. Finally, find directories named `hard` starting from the game folder.
+
+find /maps/*.txt
+cd /maps/
+find ./*.{log,LOG}
+cd ~/
+locate hard ~/
+
+5. Compare with the index. Try `locate os-release` and `locate dragon-keep-lab`. If the command or its database is missing, record that limitation and continue; no installation or administrative command is required. Does a missing result prove that your folder does not exist? Explain what `updatedb` is responsible for, without running it.
+
+locate os-release /
+locate dragon-keep-lab /
+
+Updatedb updates all the database for finding directories/ files.
+
+6. Copy the map collection. Copy the complete `maps` directory to the previously nonexistent `maps-copy` using `cp -r`. Check that the copy includes `.secret`. What would change if `maps-copy` already existed before the copy command?
+
+cd 
+cp -r ./maps/ ./maps-copy/
+
+7. Create two kinds of link. In `links`, create `current-save.sav` as a symbolic link to the original save and `shared-save.sav` as a hard link to it. Use the original's absolute path for the symbolic target. Inspect the links with `ls -l` and compare `stat` on the original, hard link, symbolic link and independent backup. Identify inode numbers and link counts.
+
+cd ./links
+ln ./dragon-keep-lab/saves/hero-backup.sav ./current-save.sav
+ln -s ./dragon-keep-lab/saves/ ./shared-save.sav
+
+8. Test the target path. Rename only the original `saves/hero-slot.sav` to `saves/hero-slot-renamed.sav`. Inspect the symbolic link with `ls -l` and `file`, and the hard link with `stat`. Explain which link can still reach the save data. Restore the original filename and check the symbolic link again. Do not delete either save.
+
+cd ./dragon-keep-lab
+mv ./saves/hero-slot.sav ./saves/hero-slot-renamed.sav
+
+The hard link still detects the file, the symbolic one doesn't
+
+
+
+

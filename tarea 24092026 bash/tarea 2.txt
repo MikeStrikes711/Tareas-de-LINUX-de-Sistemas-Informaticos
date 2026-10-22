@@ -1,0 +1,30 @@
+TAREAS MIGUEL ÁNGEL NEVADO REY -	24 / 09 / 2026
+TAREA 2:
+
+1. Go to your home directory and check your location. List its entries, including hidden ones, and confirm that no entry named `practica02` exists. If it already exists, use `practica02b` throughout the activity to start in a new folder. If that name is also taken, choose another unused name.
+
+cd ~
+pwd
+ls -lh
+(I'm gonna use the name 'practica02')
+
+2. Create the `practica02` directory. Check that it appears in the listing, enter it and display your new location.
+
+mkdir practica02
+ls
+cd ./practica02
+pwd
+
+3. Create an empty file named `partida.txt` inside it. List the files with details: you should see its name and a size of **0 bytes**.
+
+touch ./partida.txt
+ls -la
+
+4. Create a copy named `partida-copia.txt` in the same directory. Check that both files exist and that both have a size of **0 bytes**.
+
+cp ./partida.txt ./partida2.txt
+ls -la
+
+
+
+

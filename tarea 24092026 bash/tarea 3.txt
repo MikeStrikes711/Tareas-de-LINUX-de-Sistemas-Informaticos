@@ -1,0 +1,22 @@
+MIGUEL ÁNGEL NEVADO REY - 	24 / 09 / 2026
+TAREA 3:
+
+1. Enter your practice directory. Check your location and confirm that it contains the two files from the previous exercise.
+
+cd ~/ejercicio02
+ls -a
+
+2. Rename `partida-copia.txt` to `partida-reserva.txt`. Check that the new name appears, that the old name no longer appears and that `partida.txt` is still in place.
+
+mv ./partida2.txt ./partida-reservada.txt
+ls
+
+3. Create a directory named `reservas` inside the practice directory.
+
+mkdir ./reservas
+
+4. Move `partida-reserva.txt` into `reservas`. From the practice directory, list both its contents and the contents of `reservas`, without changing directories.
+
+mv ./partida-reserva.txt ./reservas/partida-reserva.txt
+ls -a
+ls -a ./reservas

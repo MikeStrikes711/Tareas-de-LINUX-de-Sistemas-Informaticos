@@ -1,0 +1,8 @@
+1. grep -E '^player' ./tags.txt
+2. grep -E '7$' ./tags.txt
+3. grep -E 'cat.7$' ./tags.txt
+4. grep -E 'player.$' ./tags.txt
+5. grep -E 'player[A-Z]$' ./tags.txt
+6. grep -E 'cat[0-9]{2}$' ./tags.txt
+7. grep -E '^cat[0-9]7$' ./tags.txt
+8. grep -E 'player[0-9]+' ./tags.txt
